@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-o@w!i)o@t_5z4mwcy4f%s2asz*(t=@w+d@#k3+36_fucx+(b@r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'food_courier_be.urls'
@@ -90,17 +91,28 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'food_courier',
+#         'USER': 'postgres',
+#         'PASSWORD': 'prayer1020',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'food_courier',
-        'USER': 'postgres',
-        'PASSWORD': 'prayer1020',
-        'HOST': '127.0.0.1',
+        'USER': 'sinaayo',
+        'PASSWORD':  '3Di1ZToObRjcaDKw6Bsyv8BkyOVTs0Ig',
+        'HOST': 'dpg-ch5ts38rddl7aldoi5sg-a.frankfurt-postgres.render.com',
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -198,3 +210,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

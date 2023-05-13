@@ -49,6 +49,7 @@ class Register_User(APIView):
             user = User.objects.get(email=request.user)
             print(user.country, user.phone_number)
             print(request.data.items())
+            print(request.FILES)
             try:
                 if request.FILES["avatar"]:
                     user.avatar = request.FILES["avatar"]
@@ -90,7 +91,7 @@ class Login_User(APIView):
             user = User.objects.get(email=request.user)
             user_serializer = Custom_User_Serializer(user).data
             return Response({"status": "success", "data": user_serializer})
-        return Response({"message": "error"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": "error"}, status=status.HTTP_200_OK)
 
     def post(self, request):
         print(request.user.is_authenticated)

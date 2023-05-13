@@ -25,7 +25,7 @@ class PathAndRename(object):
         return os.path.join(self.path, filename)
 
 
-path_and_rename = PathAndRename("/media")
+path_and_rename = PathAndRename("media/")
 # def path_and_rename(path):
 #     def wrapper(instance, filename):
 #         ext = filename.split('.')[-1]

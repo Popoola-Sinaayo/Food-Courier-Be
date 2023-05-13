@@ -6,7 +6,7 @@ from rest_framework.serializers import ModelSerializer
 class Custom_User_Serializer(ModelSerializer):
     class Meta:
         model = Custom_User
-        fields = ['id', 'name', 'phone_number', 'country', 'avatar']
+        fields = ['id', 'name', 'phone_number', 'country', 'avatar', 'email']
 
 
 class Banner_Serializer(ModelSerializer):
